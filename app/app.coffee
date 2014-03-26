@@ -16,6 +16,29 @@ define ['module', 'underscore', 'jquery', 'backbone', 'layoutmanager'], (module,
   }
 
   app.helpers = {
+    trackOffOn: (callback) ->
+      time = new Date().getTime()
+      interval = 2010
+      errorMargin = 700
+
+      check = ->
+        newtime = new Date().getTime()
+        console.log "checking"
+        callback() if (newtime - time) > (interval + errorMargin)
+        time = newtime
+        timer = setTimeout(check, interval)
+        return
+
+      timer = setTimeout(check, interval)
+
+      return {
+        timeSinceLastCheck: ->
+          new Date().getTime() - time
+
+        stop: ->
+          clearTimeout timer  if timer
+          return
+      }
 
   }
 
