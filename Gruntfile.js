@@ -64,18 +64,16 @@ module.exports = function(grunt) {
     styles: {
       // Out the concatenated contents of the following styles into the below
       // development file path.
-      main: {
-        "dist/styles.css": {
-          // Point this to where your `index.css` file is location.
-          src: "app/styles/index.css",
+      "dist/styles.css": {
+        // Point this to where your `index.css` file is location.
+        src: "app/styles/index.css",
 
-          // The relative path to use for the @imports.
-          paths: ["app/styles"],
+        // The relative path to use for the @imports.
+        paths: ["app/styles"],
 
-          // Rewrite image paths during release to be relative to the `img`
-          // directory.
-          forceRelative: "/app/img/"
-        }
+        // Rewrite image paths during release to be relative to the `img`
+        // directory.
+        forceRelative: "/app/img/"
       }
     },
 
@@ -129,6 +127,21 @@ module.exports = function(grunt) {
           port: 8001
         }
       }
+    },
+
+    shell: {
+        chui: {
+          command: 'grunt chui',
+          options: {
+            async: false,
+            execOptions: {
+              cwd: './vendor/chocolatechip-ui/'
+            }
+          }
+        },
+        options: {
+            async: true
+        }
     },
 
     watch: {
@@ -299,6 +312,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-karma-coveralls");
   grunt.loadNpmTasks("grunt-processhtml");
   grunt.loadNpmTasks('grunt-concurrent');
+  grunt.loadNpmTasks('grunt-shell-spawn');
 
   // Grunt BBB tasks.
   grunt.loadNpmTasks("grunt-bbb-server");
@@ -311,6 +325,7 @@ module.exports = function(grunt) {
   // When running the default Grunt command, just lint the code.
   grunt.registerTask("default", [
     "clean",
+    "shell",
     "jshint",
     "processhtml",
     "coffee",
@@ -321,6 +336,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask("dev", [
+    "shell",
     "coffee",
     "concurrent"
   ]);

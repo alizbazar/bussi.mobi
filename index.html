@@ -9,7 +9,7 @@
   <title>Backbone Boilerplate</title>
 
   <script>
-  // Conditional loading of Chui CSS
+  // Conditional loading of Chui CSS based on the platform
   (function() {
     var $ = document; // shortcut
     var head  = $.getElementsByTagName('head')[0];
@@ -19,7 +19,7 @@
     link.type = 'text/css';
     var ua = navigator.userAgent;
     var browser = /android/i.test(ua) ? 'android' : /trident/i.test(ua) ? 'win' : 'ios';
-    link.href = '/vendor/chocolatechip-ui/chui-' + browser + '-3.5.3.min.css';
+    link.href = '/vendor/chocolatechip-ui/chui/chui-' + browser + '-3.5.2.min.css';
     link.media = 'all';
     head.appendChild(link);
   }());
