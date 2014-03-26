@@ -1,4 +1,4 @@
-define ['module', 'app'], (module, app) ->
+define ['module', 'app', 'collections/favorites'], (module, app, Favorites) ->
   "use strict"
 
   # External dependencies.
@@ -9,8 +9,16 @@ define ['module', 'app'], (module, app) ->
     routes:
       "": "index"
 
+    initialize: ->
+      @favorites = new Favorites()
+      return
+
     index: ->
       console.log "Welcome to your / route."
+
+      require ['views/firstuse'], (firstuse) ->
+
+
       return
   )
   return
