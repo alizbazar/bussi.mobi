@@ -139,6 +139,15 @@ module.exports = function(grunt) {
             }
           }
         },
+        chui_themes: {
+          command: 'grunt themes',
+          options: {
+            async: false,
+            execOptions: {
+              cwd: './vendor/chocolatechip-ui/'
+            }
+          }
+        },
         options: {
             async: true
         }
@@ -153,12 +162,19 @@ module.exports = function(grunt) {
           'app/**/*',
           '*.html',
           '*.js',
-          '!**/*.coffee'
+          '!**/*.coffee',
+          'vendor/chocolatechip-ui/chui/*.css'
         ],
         options: {
           livereload: true
         }
       },
+      chui: {
+        files: [
+          'vendor/chocolatechip-ui/src/themes/**/*.less'
+        ],
+        tasks: ['shell:chui_themes']
+      }
       // coffee: {
       //   files: [
       //     '**/*.coffee',
@@ -175,7 +191,7 @@ module.exports = function(grunt) {
       },
       watch: [
         'watch:livereload',
-        //'watch:coffee',
+        'watch:chui',
         'server',
         //'talkooserver'
       ]
@@ -325,7 +341,7 @@ module.exports = function(grunt) {
   // When running the default Grunt command, just lint the code.
   grunt.registerTask("default", [
     "clean",
-    "shell",
+    "shell:chui",
     "jshint",
     "processhtml",
     "coffee",
@@ -336,7 +352,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask("dev", [
-    "shell",
+    "shell:chui",
     "coffee",
     "concurrent"
   ]);
