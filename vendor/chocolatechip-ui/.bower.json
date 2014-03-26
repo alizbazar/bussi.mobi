@@ -1,0 +1,15 @@
+{
+  "name": "chocolatechip-ui",
+  "homepage": "https://github.com/sourcebitsllc/chocolatechip-ui",
+  "version": "3.5.2",
+  "_release": "3.5.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.5.2",
+    "commit": "ce2e68f5b623234e1456c3f15e787cf5a5d5c9b7"
+  },
+  "_source": "git://github.com/sourcebitsllc/chocolatechip-ui.git",
+  "_target": "~3.5.2",
+  "_originalSource": "chocolatechip-ui",
+  "_direct": true
+}

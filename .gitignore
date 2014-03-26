@@ -5,3 +5,4 @@
 **/.DS_Store
 app/**/*.js
 *.sublime-workspace
+/vendor/chocolatechip-ui/node_modules/
