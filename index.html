@@ -8,6 +8,22 @@
 
   <title>Backbone Boilerplate</title>
 
+  <script>
+  // Conditional loading of Chui CSS
+  (function() {
+    var $ = document; // shortcut
+    var head  = $.getElementsByTagName('head')[0];
+    var link  = $.createElement('link');
+    link.id   = 'chui';
+    link.rel  = 'stylesheet';
+    link.type = 'text/css';
+    var ua = navigator.userAgent;
+    var browser = /android/i.test(ua) ? 'android' : /trident/i.test(ua) ? 'win' : 'ios';
+    link.href = '/vendor/chocolatechip-ui/chui-' + browser + '-3.5.3.min.css';
+    link.media = 'all';
+    head.appendChild(link);
+  }());
+  </script>
   <!-- Application styles. -->
   <!-- build:[href] /styles.min.css -->
   <link rel="stylesheet" href="/app/styles/index.css">
@@ -15,8 +31,39 @@
 </head>
 
 <body>
-  <!-- Application container. -->
-  <main role="main" id="main"></main>
+  <div id="startLoading"></div>
+  <nav id="for-main">
+      <h1>Bussi.Mobi</h1>
+   </nav>
+  <article id="main" class="current">
+    <section class="scrolled-vertical">
+      <h1>Seuraa bussin saapumista pysäkille</h1>
+      <h2>Kirjoita pysäkin nimi tai koodi:</h2>
+      <ul class="list">
+        <li class="nav" data-goto="timetable">
+          <h3>Konemies</h3>
+          <h4>103 Tapiola, 504 Kivenlahti</h4>
+        </li>
+      </ul>
+    </section>
+  </article>
+  <nav>
+    <a class="button back">Home</a>
+    <h1>Konemies</h1>
+  </nav>
+  <article id="timetable" class="next">
+    <section>
+
+    </section>
+  </article>
+  <nav>
+    <h1>[BUS 123]</h1>
+  </nav>
+  <article id="timer" class="next">
+    <section>
+
+    </section>
+  </article>
 
   <!-- Application source. -->
   <!-- build:[src] /source.min.js -->

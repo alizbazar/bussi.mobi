@@ -19,7 +19,8 @@ require.config
     # Map remaining vendor dependencies.
     jquery: "../vendor/bower/jquery/jquery"
     backbone: "../vendor/bower/backbone/backbone"
-    bootstrap: "../vendor/bower/bootstrap/dist/js/bootstrap.min"
+    #bootstrap: "../vendor/bower/bootstrap/dist/js/bootstrap.min"
+    chui: "../vendor/bower/chui/chui-3.5.2"
     layoutmanager: "../vendor/bower/layoutmanager/backbone.layoutmanager"
 
 

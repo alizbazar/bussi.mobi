@@ -64,16 +64,18 @@ module.exports = function(grunt) {
     styles: {
       // Out the concatenated contents of the following styles into the below
       // development file path.
-      "dist/styles.css": {
-        // Point this to where your `index.css` file is location.
-        src: "app/styles/index.css",
+      main: {
+        "dist/styles.css": {
+          // Point this to where your `index.css` file is location.
+          src: "app/styles/index.css",
 
-        // The relative path to use for the @imports.
-        paths: ["app/styles"],
+          // The relative path to use for the @imports.
+          paths: ["app/styles"],
 
-        // Rewrite image paths during release to be relative to the `img`
-        // directory.
-        forceRelative: "/app/img/"
+          // Rewrite image paths during release to be relative to the `img`
+          // directory.
+          forceRelative: "/app/img/"
+        }
       }
     },
 

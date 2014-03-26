@@ -20,6 +20,6 @@ define ['module', 'underscore', 'jquery', 'backbone', 'layoutmanager'], (module,
   }
 
   # Load non-critical dependencies, such as possible jquery plugins aso.
-  require ['bootstrap']
+  require ['chui']
 
   return
